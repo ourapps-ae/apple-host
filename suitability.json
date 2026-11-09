@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "jobs": ["apple-host"],
+  "profiles": [
+    {
+      "id": "any",
+      "load": {},
+      "cost": "none",
+      "regions": ["any"],
+      "compliance": [],
+      "notes": "Build-time rendering and client Swift code; no service is run. Building and distributing needs a Mac with Xcode and an Apple developer account, whose cost and limits were not checked."
+    }
+  ],
+  "notes": "No provider limits are cited because the component deploys nothing."
+}

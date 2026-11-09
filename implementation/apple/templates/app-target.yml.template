@@ -1,0 +1,25 @@
+  {{scheme}}:
+    type: application
+    supportedDestinations: [{{destinations}}]
+    sources:
+{{sources}}
+      - {{scheme}}/Resources
+      - path: {{scheme}}/Art
+        type: folder
+        buildPhase: resources
+        optional: true
+{{dependencies}}    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: {{bundleIdentifier:json}}
+        INFOPLIST_FILE: {{scheme}}/Info.plist
+        TARGETED_DEVICE_FAMILY: "{{deviceFamily}}"
+        SUPPORTED_INTERFACE_ORIENTATIONS: {{orientations}}
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+{{macSettings}}      # App Store signing on the application alone: package bundles keep their own settings.
+      configs:
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Apple Distribution
+          DEVELOPMENT_TEAM: "$({{signingPrefix}}_TEAM)"
+          PROVISIONING_PROFILE_SPECIFIER: "$({{signingPrefix}}_PROFILE)"

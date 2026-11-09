@@ -1,0 +1,67 @@
+{
+  "id": "ourapps-ae.apple-host",
+  "name": "Apple host",
+  "kind": "component",
+  "status": "example",
+  "package": "ourapps-ae/apple-host",
+  "version": "0.4.0",
+  "ports": [
+    {
+      "id": "theme",
+      "name": "Theme",
+      "direction": "input",
+      "kind": "interface",
+      "type": "ae/theme",
+      "version": "1.0.0",
+      "required": true,
+      "cardinality": "one"
+    },
+    {
+      "id": "apple-shell",
+      "name": "Apple shell",
+      "direction": "output",
+      "kind": "interface",
+      "type": "ae/apple-shell",
+      "version": "1.0.0"
+    }
+  ],
+  "settings": [
+    {
+      "id": "bundleIdentifier",
+      "name": "Bundleidentifier",
+      "type": "string",
+      "required": true,
+      "secret": false
+    },
+    {
+      "id": "displayName",
+      "name": "Displayname",
+      "type": "string",
+      "required": true,
+      "secret": false
+    },
+    {
+      "id": "targets",
+      "name": "Targets",
+      "type": "string",
+      "required": false,
+      "secret": false,
+      "default": "web ios android macos windows tvos"
+    },
+    {
+      "id": "deploymentTargets",
+      "name": "Deploymenttargets",
+      "type": "string",
+      "required": false,
+      "secret": false,
+      "default": "ios17 tvos17 macos14"
+    },
+    {
+      "id": "scheme",
+      "name": "Scheme",
+      "type": "string",
+      "required": true,
+      "secret": false
+    }
+  ]
+}

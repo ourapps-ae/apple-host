@@ -1,0 +1,6 @@
+        "MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]": {{macosVersion:json}}
+        "ENABLE_APP_SANDBOX[sdk=macosx*]": YES
+        "ENABLE_HARDENED_RUNTIME[sdk=macosx*]": YES
+        "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": {{scheme}}/MacCatalyst.entitlements
+        "GENERATE_INFOPLIST_FILE[sdk=macosx*]": YES
+        "INFOPLIST_KEY_LSApplicationCategoryType[sdk=macosx*]": {{appCategory}}

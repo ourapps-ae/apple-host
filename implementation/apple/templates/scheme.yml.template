@@ -1,0 +1,8 @@
+  {{name}}:
+    build:
+      targets:
+        {{name}}: all
+    run:
+      config: Debug
+    archive:
+      config: Release

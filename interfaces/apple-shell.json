@@ -1,0 +1,63 @@
+{
+  "id": "apple-shell",
+  "type": "ae/apple-shell",
+  "version": "1.0.0",
+  "operations": {
+    "renderApple": {
+      "arguments": [
+        "settings:AppleShellSettings",
+        "options:AppleRenderOptions|undefined"
+      ],
+      "returns": "{files:Record<string,string>,message:string}"
+    },
+    "writeApple": {
+      "arguments": [
+        "directory:string",
+        "files:Record<string,string>"
+      ],
+      "returns": "void"
+    },
+    "validateSettings": {
+      "arguments": [
+        "settings:AppleShellSettings"
+      ],
+      "returns": "ResolvedAppleSettings"
+    },
+    "parseTargets": {
+      "arguments": [
+        "value:string"
+      ],
+      "returns": "Array<iphone|ipad|mac|tv> (empty when only web, android or windows are named)"
+    },
+    "parseDeploymentTargets": {
+      "arguments": [
+        "value:string|undefined"
+      ],
+      "returns": "{ios:string,tvos:string,macos:string}"
+    },
+    "ApplicationShell": {
+      "arguments": [
+        "configuration:ShellConfiguration",
+        "root:()->View"
+      ],
+      "returns": "Scene (Swift)"
+    },
+    "Platform.traits": {
+      "arguments": [],
+      "returns": "PlatformTraits (Swift)"
+    },
+    "ShellSettings.current": {
+      "arguments": [],
+      "returns": "ShellSettings (Swift)"
+    }
+  },
+  "types": {
+    "AppleShellSettings": "{bundleIdentifier:qualified,displayName:label,targets:string (recipe targets web ios android macos windows tvos, space-separated; non-Apple targets ignored),deploymentTargets:string|undefined (for example 'ios17 tvos17 macos14'),scheme:identifier}",
+    "AppleRenderOptions": "{componentSources?:string[],packages?:{name,url,from}[],serverAddress?:string,xcodeVersion?:string,orientation?:'portrait'|'all',appCategory?:string,preGenCommand?:string,cameraUsage?:string,microphoneUsage?:string,backgroundModes?:string[],signingPrefix?:string}",
+    "PlatformTraits": "{uprightBoard,hidesStatusBar,usesFocusNavigation,showsCornerHelp,capitalisesTypedNames,plainButtons,handlesExitCommand: Bool}",
+    "ShellConfiguration": "{displayName:String,tint:Color,colourScheme:ColorScheme?,becameActive:()->Void,wentToBackground:()->Void}"
+  },
+  "requirements": {
+    "theme": "The application passes its theme's accent colour as ShellConfiguration.tint and chooses the colour scheme; the shell holds no colours itself. The operations used are listed in interfaces/required/theme.json."
+  }
+}

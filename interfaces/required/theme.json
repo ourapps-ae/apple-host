@@ -1,0 +1,31 @@
+{
+  "id": "theme",
+  "type": "ae/theme",
+  "version": "1.0.0",
+  "notes": "What apple-host reads from the theme component. The shell holds no colours: the application passes the accent colour as ShellConfiguration.tint.",
+  "operations": {
+    "ThemeSet.named": {
+      "arguments": [
+        "name:String?"
+      ],
+      "returns": "ThemeSet (Swift)"
+    },
+    "ThemeSet.resolved": {
+      "arguments": [
+        "primary:String?",
+        "table:String?"
+      ],
+      "returns": "ThemeSet (Swift)"
+    },
+    "ThemeSet.accent": {
+      "arguments": [],
+      "returns": "ThemeColour (the primary colour); the application turns it into the Color given as ShellConfiguration.tint"
+    },
+    "accentColour": {
+      "arguments": [
+        "tokens:Tokens"
+      ],
+      "returns": "string #rrggbb (build-time use, TypeScript)"
+    }
+  }
+}

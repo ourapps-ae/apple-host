@@ -1,0 +1,6 @@
+{
+  "phone": { "uprightBoard": false, "hidesStatusBar": true,  "usesFocusNavigation": false, "showsCornerHelp": true,  "capitalisesTypedNames": true,  "plainButtons": true,  "handlesExitCommand": false },
+  "pad":   { "uprightBoard": false, "hidesStatusBar": true,  "usesFocusNavigation": false, "showsCornerHelp": true,  "capitalisesTypedNames": true,  "plainButtons": true,  "handlesExitCommand": false },
+  "mac":   { "uprightBoard": true,  "hidesStatusBar": true,  "usesFocusNavigation": false, "showsCornerHelp": true,  "capitalisesTypedNames": true,  "plainButtons": true,  "handlesExitCommand": false },
+  "tv":    { "uprightBoard": true,  "hidesStatusBar": false, "usesFocusNavigation": true,  "showsCornerHelp": false, "capitalisesTypedNames": false, "plainButtons": false, "handlesExitCommand": true }
+}

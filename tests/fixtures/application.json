@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "bundleIdentifier": "app.example.demo",
+    "displayName": "Demo App",
+    "targets": "ios macos tvos",
+    "deploymentTargets": "ios17 tvos17 macos14",
+    "scheme": "Demo"
+  },
+  "options": {
+    "componentSources": ["../components/other/apple/Sources"],
+    "packages": [{ "name": "Remote", "url": "https://github.com/example/remote-sdk", "from": "1.2.0" }],
+    "serverAddress": "https://server.example.com",
+    "appCategory": "public.app-category.entertainment"
+  }
+}

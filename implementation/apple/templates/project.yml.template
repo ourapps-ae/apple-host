@@ -1,0 +1,17 @@
+name: {{scheme:json}}
+{{packages}}options:
+  bundleIdPrefix: {{bundleIdPrefix:json}}
+  deploymentTarget:
+{{deploymentTargets}}
+  xcodeVersion: {{xcodeVersion:json}}
+  createIntermediateGroups: true
+{{preGenCommand}}settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    SHELL_DISPLAY_NAME: {{displayName:json}}
+    SHELL_SERVER_ADDRESS: {{serverAddress:json}}
+    MARKETING_VERSION: 0.0.0
+    CURRENT_PROJECT_VERSION: 1
+targets:
+{{targets}}schemes:
+{{schemes}}

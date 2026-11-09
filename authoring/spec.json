@@ -1,0 +1,136 @@
+{
+  "name": "apple-host",
+  "version": "0.4.0",
+  "title": "Apple host",
+  "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
+  "facilities": [
+    {
+      "id": "apple-shell",
+      "description": "SwiftUI application shell for iPhone, iPad, Mac and Apple TV"
+    }
+  ],
+  "provides": [
+    {
+      "id": "apple-shell",
+      "type": "ae/apple-shell",
+      "version": "1.0.0",
+      "path": "interfaces/apple-shell.json"
+    }
+  ],
+  "requires": [
+    {
+      "id": "theme",
+      "type": "ae/theme",
+      "version": "1.0.0",
+      "path": "interfaces/required/theme.json"
+    }
+  ],
+  "collect": [
+    {
+      "id": "bundleIdentifier",
+      "type": "string",
+      "grammar": "qualified",
+      "required": true,
+      "secret": false
+    },
+    {
+      "id": "displayName",
+      "type": "string",
+      "grammar": "label",
+      "required": true,
+      "secret": false
+    },
+    {
+      "id": "targets",
+      "type": "string",
+      "grammar": "label",
+      "required": false,
+      "secret": false,
+      "default": "web ios android macos windows tvos"
+    },
+    {
+      "id": "deploymentTargets",
+      "type": "string",
+      "grammar": "label",
+      "required": false,
+      "secret": false,
+      "default": "ios17 tvos17 macos14"
+    },
+    {
+      "id": "scheme",
+      "type": "string",
+      "grammar": "identifier",
+      "required": true,
+      "secret": false
+    }
+  ],
+  "dependencies": [],
+  "tools": {
+    "node": "26.5.0",
+    "python3": "3.12.8",
+    "swiftc": "6.4.2",
+    "xcodegen": "2.46.0"
+  },
+  "platforms": [
+    "apple"
+  ],
+  "suites": [
+    {
+      "id": "render",
+      "argv": [
+        "node",
+        "--test",
+        "tests/render.test.ts"
+      ],
+      "tools": {
+        "node": "26.5.0"
+      }
+    },
+    {
+      "id": "apple",
+      "argv": [
+        "python3",
+        "tests/native.py",
+        "apple"
+      ],
+      "tools": {
+        "python3": "3.12.8",
+        "swiftc": "6.4.2"
+      },
+      "scope": "platform",
+      "fixtures": [
+        "tests/apple/main.swift",
+        "tests/fixtures/platform-traits.json"
+      ]
+    },
+    {
+      "id": "project",
+      "argv": [
+        "python3",
+        "tests/native.py",
+        "project"
+      ],
+      "tools": {
+        "python3": "3.12.8",
+        "node": "26.5.0",
+        "xcodegen": "2.46.0"
+      },
+      "scope": "platform",
+      "fixtures": [
+        "tests/apple/generate.ts",
+        "tests/fixtures/application.json"
+      ]
+    }
+  ],
+  "text": {
+    "purpose": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV, with the platform differences handled once. The Swift side supplies the shared window (`ApplicationShell`), a table of what each device family does differently (`PlatformTraits`), view modifiers for the calls that differ between platforms, and the settings the project writes into Info.plist. The build side renders the XcodeGen `project.yml`, the iPhone/iPad/Mac and Apple TV Info.plist files, the Mac sandbox entitlements, App Store export options and the Apple TV icon catalogue skeleton from typed settings.",
+    "userInputs": "The installer collects these settings. `targets` takes the recipe's client target list, space-separated (default `web ios android macos windows tvos`): `ios` builds iPhone and iPad, `macos` builds Mac (Catalyst), `tvos` builds Apple TV, and `web`, `android` and `windows` are ignored. A list with no Apple target writes no Apple project; `renderApple` returns an empty `files` and a message saying so. A word that is neither an Apple nor a recipe target (for example `watch`) is refused. `deploymentTargets` is a space-separated list such as `ios17 tvos17 macos14` (major version; `ios17_2` for a minor version); the collected grammar cannot carry dots.",
+    "integration": "Render the project with `renderApple(settings, options)` from `apple/render.ts`, which returns `{files, message}`, and write `files` with `writeApple` into the Apple project folder, then run `xcodegen generate`. When `files` is empty the targets named no Apple target and `message` says so. `options.componentSources` lists the `apple/Sources` folders of the other components compiled into the application; `options.packages` lists Swift packages. The application keeps its own sources under `<scheme>/Sources`, resources under `<scheme>/Resources` and the Apple TV images in `<scheme>TV/Assets.xcassets`. In the application's `@main App` return `ApplicationShell(ShellConfiguration(...)) { RootView() }`; ask `Platform.traits` for device differences and use `shellStatusBarHidden`, `shellNameInput`, `shellButtonStyle` and `shellExitCommand` where the API differs. `ShellSettings.current` reads the display name and server address that the generated project writes into Info.plist. `examples/consumer.ts` and `examples/Application.swift` show both halves.",
+    "infrastructure": "No service is deployed. Building needs a Mac with Xcode and XcodeGen; signing and App Store Connect belong to the release pipeline. Team and profile names reach the project through environment variables named after the scheme (`<SCHEME>_TEAM`, `<SCHEME>_PROFILE`, `<SCHEME>_TV_PROFILE`), supplied by reference at release time; no signing material is stored here. Export option files hold the placeholders `TEAM_ID` and `PROFILE_NAME` for the pipeline to replace.",
+    "verification": "`node --test tests/render.test.ts` renders the fixture application for every target combination and checks the project, property lists, export options and asset skeleton. `python3 tests/native.py apple` compiles the Swift host sources with swiftc 6.4.2 against the fixture traits table and settings cases, and type-checks the example entry point. `python3 tests/native.py project` renders the fixture into a project folder, runs XcodeGen 2.46.0 on it and checks the generated Xcode project and the property lists with plutil. The project was not built with xcodebuild, and nothing ran on a device or simulator.",
+    "scenarios": "iPhone and iPad share one target and run portrait or all orientations; Mac runs the same target as Mac Catalyst with the sandbox entitlements and an upright board; Apple TV is a second target with focus navigation, the remote Menu button as exit command and no corner help control.",
+    "updates": "Patch updates replace the owned files; regenerate the project after each update. Removal deletes the owned sources and the generated project folder entries; the application's own sources are untouched. No application data is held."
+  },
+  "agentInstructions": "Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
+  "developerInstructions": "Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test."
+}
