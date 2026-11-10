@@ -49,10 +49,10 @@ Dependencies: none.
 `tools.lock.json` pins verification tools: node 26.5.0, python3 3.12.8, swiftc 6.4.2, xcodegen 2.46.0. Licence wording remains deferred.
 
 ## Provided interfaces
-- `interfaces/apple-shell.json` defines `apple-shell` (ae/apple-shell) version 1.0.0.
+- `interfaces/apple-shell.json` defines `apple-shell` (ae/apple-shell) version 1.0.0 as an OpenRPC 1.3.2 document. Methods tagged `typescript` are the build-time functions of `apple/render.ts` (`renderApple`, `writeApple`, `validateSettings`, `parseTargets`, `parseDeploymentTargets`); methods tagged `swift` are the public Swift API (`ShellConfiguration.init`, `ApplicationShell.init`, `Platform.family`, `Platform.traits`, `PlatformTraits.traits(for:)`, `ShellSettings.current`, `ShellSettings.init` and the `View.shell...` modifiers). Parameters and results are JSON Schema 2020-12; Swift values with no JSON form (Color, View, closures) are described by name. `SettingsError` is listed where a setting breaks its grammar.
 
 ## Required interfaces
-- `theme` (ae/theme) version 1.0.0, supplied by the recipe or application. The operations used are listed in `interfaces/required/theme.json`: theme `ThemeSet.accent` for the shell tint.
+- `theme` (ae/theme) version 1.0.0, supplied by the recipe or application. `interfaces/required-theme.json` is a copy of the theme component's interface document; apple-host uses theme `ThemeSet.accent` for the shell tint.
 
 ## Integration
 Render the project with `renderApple(settings, options)` from `apple/render.ts`, which returns `{files, message}`, and write `files` with `writeApple` into the Apple project folder, then run `xcodegen generate`. When `files` is empty the targets named no Apple target and `message` says so. `options.componentSources` lists the `apple/Sources` folders of the other components compiled into the application; `options.packages` lists Swift packages. The application keeps its own sources under `<scheme>/Sources`, resources under `<scheme>/Resources` and the Apple TV images in `<scheme>TV/Assets.xcassets`. In the application's `@main App` return `ApplicationShell(ShellConfiguration(...)) { RootView() }`; ask `Platform.traits` for device differences and use `shellStatusBarHidden`, `shellNameInput`, `shellButtonStyle` and `shellExitCommand` where the API differs. `ShellSettings.current` reads the display name and server address that the generated project writes into Info.plist. `examples/consumer.ts` and `examples/Application.swift` show both halves.

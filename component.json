@@ -1,459 +1,168 @@
 {
-  "format": 1,
-  "kind": "component",
-  "identity": {
-    "name": "ourapps-ae/apple-host",
-    "version": "0.4.0",
-    "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
-    "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "licenceStatus": "deferred"
-  },
-  "facilities": [
-    {
-      "id": "apple-shell",
-      "description": "SwiftUI application shell for iPhone, iPad, Mac and Apple TV"
-    }
-  ],
-  "documents": {
-    "contract": "CONTRACT.md",
-    "interfaces": [
-      "interfaces/apple-shell.json",
-      "interfaces/required/theme.json",
-      "suitability.json"
-    ],
-    "examples": [
-      "examples/Application.swift",
-      "examples/consumer.ts"
-    ],
-    "licenceNotice": "LICENCE"
-  },
-  "collect": [
-    {
-      "id": "bundleIdentifier",
-      "type": "string",
-      "grammar": "qualified",
-      "required": true,
-      "secret": false
-    },
-    {
-      "id": "displayName",
-      "type": "string",
-      "grammar": "label",
-      "required": true,
-      "secret": false
-    },
-    {
-      "id": "targets",
-      "type": "string",
-      "grammar": "label",
-      "required": false,
-      "secret": false,
-      "default": "web ios android macos windows tvos"
-    },
-    {
-      "id": "deploymentTargets",
-      "type": "string",
-      "grammar": "label",
-      "required": false,
-      "secret": false,
-      "default": "ios17 tvos17 macos14"
-    },
-    {
-      "id": "scheme",
-      "type": "string",
-      "grammar": "identifier",
-      "required": true,
-      "secret": false
-    }
-  ],
-  "files": [
-    {
-      "path": "CONTRACT.md",
-      "executable": false
-    },
-    {
-      "path": "INSTRUCTIONS.md",
-      "executable": false
-    },
-    {
-      "path": "LICENCE",
-      "executable": false
-    },
-    {
-      "path": "SOURCE.md",
-      "executable": false
-    },
-    {
-      "path": "examples/Application.swift",
-      "executable": false
-    },
-    {
-      "path": "examples/consumer.ts",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/Sources/ApplicationShell.swift",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/Sources/Platform.swift",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/Sources/ShellSettings.swift",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/render.ts",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/ExportOptions.plist.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/Info.plist.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/InfoTV.plist.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/MacCatalyst.entitlements",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/app-target.yml.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/mac-settings.yml.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/project.yml.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/scheme.yml.template",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Shelf.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-assets/Contents.json",
-      "executable": false
-    },
-    {
-      "path": "implementation/apple/templates/tv-target.yml.template",
-      "executable": false
-    },
-    {
-      "path": "interfaces/apple-shell.json",
-      "executable": false
-    },
-    {
-      "path": "interfaces/required/theme.json",
-      "executable": false
-    },
-    {
-      "path": "suitability.json",
-      "executable": false
-    },
-    {
-      "path": "tests/apple/generate.ts",
-      "executable": false
-    },
-    {
-      "path": "tests/apple/main.swift",
-      "executable": false
-    },
-    {
-      "path": "tests/fixtures/application.json",
-      "executable": false
-    },
-    {
-      "path": "tests/fixtures/platform-traits.json",
-      "executable": false
-    },
-    {
-      "path": "tests/native.py",
-      "executable": false
-    },
-    {
-      "path": "tests/render.test.ts",
-      "executable": false
-    },
-    {
-      "path": "tools.lock.json",
-      "executable": false
-    },
-    {
-      "path": "visual/definition.json",
-      "executable": false
-    },
-    {
-      "path": "visual/examples/connected.json",
-      "executable": false
-    },
-    {
-      "path": "visual/output/connected.png",
-      "executable": false
-    },
-    {
-      "path": "visual/output/connected.svg",
-      "executable": false
-    },
-    {
-      "path": "visual/output/description.md",
-      "executable": false
-    }
-  ],
   "artefacts": [
     {
-      "source": "implementation/apple/Sources/ApplicationShell.swift",
       "destination": "components/apple-host/apple/Sources/ApplicationShell.swift",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/Sources/ApplicationShell.swift",
+      "template": false
     },
     {
-      "source": "implementation/apple/Sources/Platform.swift",
       "destination": "components/apple-host/apple/Sources/Platform.swift",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/Sources/Platform.swift",
+      "template": false
     },
     {
-      "source": "implementation/apple/Sources/ShellSettings.swift",
       "destination": "components/apple-host/apple/Sources/ShellSettings.swift",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/Sources/ShellSettings.swift",
+      "template": false
     },
     {
-      "source": "implementation/apple/render.ts",
       "destination": "components/apple-host/apple/render.ts",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/render.ts",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/ExportOptions.plist.template",
       "destination": "components/apple-host/apple/templates/ExportOptions.plist.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/ExportOptions.plist.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/Info.plist.template",
       "destination": "components/apple-host/apple/templates/Info.plist.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/Info.plist.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/InfoTV.plist.template",
       "destination": "components/apple-host/apple/templates/InfoTV.plist.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/InfoTV.plist.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/MacCatalyst.entitlements",
       "destination": "components/apple-host/apple/templates/MacCatalyst.entitlements",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/MacCatalyst.entitlements",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/app-target.yml.template",
       "destination": "components/apple-host/apple/templates/app-target.yml.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/app-target.yml.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/mac-settings.yml.template",
       "destination": "components/apple-host/apple/templates/mac-settings.yml.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/mac-settings.yml.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/project.yml.template",
       "destination": "components/apple-host/apple/templates/project.yml.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/project.yml.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/scheme.yml.template",
       "destination": "components/apple-host/apple/templates/scheme.yml.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/scheme.yml.template",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Shelf.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Shelf.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Shelf.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Content.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-assets/Contents.json",
       "destination": "components/apple-host/apple/templates/tv-assets/Contents.json",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-assets/Contents.json",
+      "template": false
     },
     {
-      "source": "implementation/apple/templates/tv-target.yml.template",
       "destination": "components/apple-host/apple/templates/tv-target.yml.template",
-      "template": false,
-      "executable": false
+      "executable": false,
+      "source": "implementation/apple/templates/tv-target.yml.template",
+      "template": false
     }
   ],
-  "dependencies": [],
-  "provides": [
-    {
-      "id": "apple-shell",
-      "type": "ae/apple-shell",
-      "version": "1.0.0",
-      "path": "interfaces/apple-shell.json"
-    }
-  ],
-  "requires": [
-    {
-      "id": "theme",
-      "type": "ae/theme",
-      "version": "1.0.0",
-      "path": "interfaces/required/theme.json"
-    }
-  ],
-  "visual": {
-    "definition": "visual/definition.json",
-    "examples": [
-      "visual/examples/connected.json"
-    ],
-    "outputs": [
-      "visual/output/connected.svg",
-      "visual/output/connected.png"
-    ],
-    "descriptions": [
-      "visual/output/description.md"
-    ]
-  },
   "capabilities": {
     "hosts": [],
     "secrets": [],
@@ -487,96 +196,391 @@
       "components/apple-host/apple/templates/tv-target.yml.template"
     ]
   },
+  "collect": [
+    {
+      "grammar": "qualified",
+      "id": "bundleIdentifier",
+      "required": true,
+      "secret": false,
+      "type": "string"
+    },
+    {
+      "grammar": "label",
+      "id": "displayName",
+      "required": true,
+      "secret": false,
+      "type": "string"
+    },
+    {
+      "default": "web ios android macos windows tvos",
+      "grammar": "label",
+      "id": "targets",
+      "required": false,
+      "secret": false,
+      "type": "string"
+    },
+    {
+      "default": "ios17 tvos17 macos14",
+      "grammar": "label",
+      "id": "deploymentTargets",
+      "required": false,
+      "secret": false,
+      "type": "string"
+    },
+    {
+      "grammar": "identifier",
+      "id": "scheme",
+      "required": true,
+      "secret": false,
+      "type": "string"
+    }
+  ],
+  "dependencies": [],
+  "documents": {
+    "contract": "CONTRACT.md",
+    "examples": [
+      "examples/Application.swift",
+      "examples/consumer.ts"
+    ],
+    "interfaces": [
+      "interfaces/apple-shell.json",
+      "interfaces/required-theme.json",
+      "suitability.json"
+    ],
+    "licenceNotice": "LICENCE"
+  },
+  "facilities": [
+    {
+      "description": "SwiftUI application shell for iPhone, iPad, Mac and Apple TV",
+      "id": "apple-shell"
+    }
+  ],
+  "files": [
+    {
+      "executable": false,
+      "path": "CONTRACT.md"
+    },
+    {
+      "executable": false,
+      "path": "INSTRUCTIONS.md"
+    },
+    {
+      "executable": false,
+      "path": "LICENCE"
+    },
+    {
+      "executable": false,
+      "path": "NOTICE"
+    },
+    {
+      "executable": false,
+      "path": "SOURCE.md"
+    },
+    {
+      "executable": false,
+      "path": "examples/Application.swift"
+    },
+    {
+      "executable": false,
+      "path": "examples/consumer.ts"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/Sources/ApplicationShell.swift"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/Sources/Platform.swift"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/Sources/ShellSettings.swift"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/render.ts"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/ExportOptions.plist.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/Info.plist.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/InfoTV.plist.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/MacCatalyst.entitlements"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/app-target.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/mac-settings.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/project.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/scheme.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Shelf.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Artwork.imagestacklayer/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Content.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Background.imagestacklayer/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Small.imagestack/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Content.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Artwork.imagestacklayer/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Content.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Background.imagestacklayer/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-assets/Contents.json"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/templates/tv-target.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "interfaces/apple-shell.json"
+    },
+    {
+      "executable": false,
+      "path": "interfaces/required-theme.json"
+    },
+    {
+      "executable": false,
+      "path": "suitability.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/apple/generate.ts"
+    },
+    {
+      "executable": false,
+      "path": "tests/apple/main.swift"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/application.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/platform-traits.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/native.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/render.test.ts"
+    },
+    {
+      "executable": false,
+      "path": "tools.lock.json"
+    },
+    {
+      "executable": false,
+      "path": "visual/definition.json"
+    },
+    {
+      "executable": false,
+      "path": "visual/examples/connected.json"
+    },
+    {
+      "executable": false,
+      "path": "visual/output/connected.png"
+    },
+    {
+      "executable": false,
+      "path": "visual/output/connected.svg"
+    },
+    {
+      "executable": false,
+      "path": "visual/output/description.md"
+    }
+  ],
+  "format": 1,
+  "identity": {
+    "licence": "Apache-2.0",
+    "name": "ourapps-ae/apple-host",
+    "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
+    "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "version": "0.5.0"
+  },
   "infrastructure": {
     "accounts": [],
     "costStatus": "unmeasured",
     "deployedReason": "No deployed service; injected resources and local library functions only."
   },
+  "kind": "component",
+  "provides": [
+    {
+      "id": "apple-shell",
+      "path": "interfaces/apple-shell.json",
+      "type": "ae/apple-shell",
+      "version": "1.0.0"
+    }
+  ],
+  "requires": [
+    {
+      "id": "theme",
+      "path": "interfaces/required-theme.json",
+      "type": "ae/theme",
+      "version": "1.0.0"
+    }
+  ],
+  "upgrade": {
+    "migration": "files-only",
+    "policy": "patch"
+  },
   "verification": [
     {
-      "id": "render",
-      "root": "package",
       "argv": [
         "node",
         "--test",
         "tests/render.test.ts"
       ],
       "cwd": ".",
-      "prepare": [],
-      "tools": {
-        "node": "26.5.0"
-      },
+      "expectedExit": 0,
       "fixtures": [
         "tests/fixtures/application.json",
         "tests/fixtures/platform-traits.json"
       ],
+      "id": "render",
       "locks": [
         "tools.lock.json"
       ],
       "network": false,
-      "timeoutSeconds": 120,
-      "expectedExit": 0,
+      "prepare": [],
+      "requirements": [],
+      "root": "package",
       "scope": "required-local",
-      "requirements": []
+      "timeoutSeconds": 120,
+      "tools": {
+        "node": "26.5.0"
+      }
     },
     {
-      "id": "apple",
-      "root": "package",
       "argv": [
         "python3",
         "tests/native.py",
         "apple"
       ],
       "cwd": ".",
-      "prepare": [],
-      "tools": {
-        "python3": "3.12.8",
-        "swiftc": "6.4.2"
-      },
+      "expectedExit": 0,
       "fixtures": [
         "tests/apple/main.swift",
         "tests/fixtures/platform-traits.json"
       ],
+      "id": "apple",
       "locks": [
         "tools.lock.json"
       ],
       "network": false,
-      "timeoutSeconds": 120,
-      "expectedExit": 0,
+      "prepare": [],
+      "requirements": [],
+      "root": "package",
       "scope": "platform",
-      "requirements": []
+      "timeoutSeconds": 120,
+      "tools": {
+        "python3": "3.12.8",
+        "swiftc": "6.4.2"
+      }
     },
     {
-      "id": "project",
-      "root": "package",
       "argv": [
         "python3",
         "tests/native.py",
         "project"
       ],
       "cwd": ".",
-      "prepare": [],
-      "tools": {
-        "python3": "3.12.8",
-        "node": "26.5.0",
-        "xcodegen": "2.46.0"
-      },
+      "expectedExit": 0,
       "fixtures": [
         "tests/apple/generate.ts",
         "tests/fixtures/application.json"
       ],
+      "id": "project",
       "locks": [
         "tools.lock.json"
       ],
       "network": false,
-      "timeoutSeconds": 120,
-      "expectedExit": 0,
+      "prepare": [],
+      "requirements": [],
+      "root": "package",
       "scope": "platform",
-      "requirements": []
+      "timeoutSeconds": 120,
+      "tools": {
+        "node": "26.5.0",
+        "python3": "3.12.8",
+        "xcodegen": "2.46.0"
+      }
     }
   ],
-  "upgrade": {
-    "policy": "patch",
-    "migration": "files-only"
+  "visual": {
+    "definition": "visual/definition.json",
+    "descriptions": [
+      "visual/output/description.md"
+    ],
+    "examples": [
+      "visual/examples/connected.json"
+    ],
+    "outputs": [
+      "visual/output/connected.svg",
+      "visual/output/connected.png"
+    ]
   }
 }

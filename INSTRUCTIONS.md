@@ -3,7 +3,7 @@
 ## For the agent
 Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.
 
-- Select package `ourapps-ae/apple-host` version `0.4.0`.
+- Select package `ourapps-ae/apple-host` version `0.5.0`.
 - Settings to configure:
   - `bundleIdentifier` (string, qualified; required)
   - `displayName` (string, label; required)
@@ -16,7 +16,7 @@ Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, mac
 
 ## For the developer
 
-- Theme: the `theme` port is described in `interfaces/required/theme.json`; feed theme `ThemeSet.accent` into the `ShellConfiguration.tint`.
+- Theme: the `theme` port is described in `interfaces/required-theme.json`; feed theme `ThemeSet.accent` into the `ShellConfiguration.tint`. The theme document is the theme component's own; the provided interface `interfaces/apple-shell.json` is an OpenRPC 1.3.2 document.
 Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test.
 
 ## How to check
