@@ -47,7 +47,7 @@ The installer collects these settings. `targets` takes the recipe's client targe
 - `implementation/apple/templates/tv-target.yml.template` -> `components/apple-host/apple/templates/tv-target.yml.template`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5.0, python3 3.12.8, swiftc 6.4.2, xcodegen 2.46.0. Licence wording remains deferred.
+`tools.lock.json` pins verification tools: node 26.5, python3 3.12, swiftc 6.4, xcodegen 2.46. Licence wording remains deferred.
 
 ## Provided interfaces
 - `interfaces/apple-shell.json` defines `apple-shell` (ae/apple-shell) version 1.0.0 as an OpenRPC 1.3.2 document. Methods tagged `typescript` are the build-time functions of `apple/render.ts` (`renderApple`, `writeApple`, `validateSettings`, `parseTargets`, `parseDeploymentTargets`); methods tagged `swift` are the public Swift API (`ShellConfiguration.init`, `ApplicationShell.init`, `Platform.family`, `Platform.traits`, `PlatformTraits.traits(for:)`, `ShellSettings.current`, `ShellSettings.init` and the `View.shell...` modifiers). Parameters and results are JSON Schema 2020-12; Swift values with no JSON form (Color, View, closures) are described by name. `SettingsError` is listed where a setting breaks its grammar.
@@ -65,11 +65,11 @@ In an installed application, `settings` is `appleHostSettings` from the rendered
 No service is deployed. Building needs a Mac with Xcode and XcodeGen; signing and App Store Connect belong to the release pipeline. Team and profile names reach the project through environment variables named after the scheme (`<SCHEME>_TEAM`, `<SCHEME>_PROFILE`, `<SCHEME>_TV_PROFILE`), supplied by reference at release time; no signing material is stored here. Export option files hold the placeholders `TEAM_ID` and `PROFILE_NAME` for the pipeline to replace.
 
 ## Verification
-`node --test tests/render.test.ts` renders the fixture application for every target combination and checks the project, property lists, export options and asset skeleton. `python3 tests/native.py apple` compiles the Swift host sources with swiftc 6.4.2 against the fixture traits table and settings cases, and type-checks the example entry point. `python3 tests/native.py project` renders the fixture into a project folder, runs XcodeGen 2.46.0 on it and checks the generated Xcode project and the property lists with plutil. The project was not built with xcodebuild, and nothing ran on a device or simulator.
+`node --test tests/render.test.ts` renders the fixture application for every target combination and checks the project, property lists, export options and asset skeleton. `python3 tests/native.py apple` compiles the Swift host sources with swiftc 6.4 against the fixture traits table and settings cases, and type-checks the example entry point. `python3 tests/native.py project` renders the fixture into a project folder, runs XcodeGen 2.46 on it and checks the generated Xcode project and the property lists with plutil. The project was not built with xcodebuild, and nothing ran on a device or simulator.
 
-- `node --test tests/render.test.ts` (render, required-local; tools: node 26.5.0)
-- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12.8, swiftc 6.4.2)
-- `python3 tests/native.py project` (project, platform; tools: python3 3.12.8, node 26.5.0, xcodegen 2.46.0)
+- `node --test tests/render.test.ts` (render, required-local; tools: node 26.5)
+- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4)
+- `python3 tests/native.py project` (project, platform; tools: python3 3.12, node 26.5, xcodegen 2.46)
 
 ## Scenarios and presentation
 iPhone and iPad share one target and run portrait or all orientations; Mac runs the same target as Mac Catalyst with the sandbox entitlements and an upright board; Apple TV is a second target with focus navigation, the remote Menu button as exit command and no corner help control.

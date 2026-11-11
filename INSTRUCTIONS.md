@@ -22,7 +22,7 @@ Supply an Apple developer team and App Store Connect access by reference to the 
 ## How to check
 From the component directory:
 
-- `node --test tests/render.test.ts` (render, required-local; tools: node 26.5.0)
-- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12.8, swiftc 6.4.2)
-- `python3 tests/native.py project` (project, platform; tools: python3 3.12.8, node 26.5.0, xcodegen 2.46.0)
-- `python3.12 -B /Users/george/Projects/com/my/tools/check_component.py components/apple-host` validates the manifest, sidecars and runs the required-local suite.
+- `node --test tests/render.test.ts` (render, required-local; tools: node 26.5)
+- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4)
+- `python3 tests/native.py project` (project, platform; tools: python3 3.12, node 26.5, xcodegen 2.46)
+- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch ourapps-ae/apple-host@VERSION --store STORE --from https://ourapps.app` and runs its suites.
