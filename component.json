@@ -25,6 +25,12 @@
       "template": false
     },
     {
+      "destination": "components/apple-host/apple/settings.ts",
+      "executable": false,
+      "source": "implementation/apple/settings.ts",
+      "template": true
+    },
+    {
       "destination": "components/apple-host/apple/templates/ExportOptions.plist.template",
       "executable": false,
       "source": "implementation/apple/templates/ExportOptions.plist.template",
@@ -171,6 +177,7 @@
       "components/apple-host/apple/Sources/Platform.swift",
       "components/apple-host/apple/Sources/ShellSettings.swift",
       "components/apple-host/apple/render.ts",
+      "components/apple-host/apple/settings.ts",
       "components/apple-host/apple/templates/ExportOptions.plist.template",
       "components/apple-host/apple/templates/Info.plist.template",
       "components/apple-host/apple/templates/InfoTV.plist.template",
@@ -299,6 +306,10 @@
     {
       "executable": false,
       "path": "implementation/apple/render.ts"
+    },
+    {
+      "executable": false,
+      "path": "implementation/apple/settings.ts"
     },
     {
       "executable": false,

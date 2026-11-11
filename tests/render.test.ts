@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mkdtempSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fill, parseDeploymentTargets, parseTargets, plan, renderApple, renderExportOptions, SettingsError, validateSettings, writeApple } from "../implementation/apple/render.ts";
@@ -169,4 +169,12 @@ test("consumer writes the project files to disk", () => {
   assert.match(message, /^Apple project written/);
   assert.equal(readFileSync(join(directory, "project.yml"), "utf8"), all["project.yml"]);
   writeApple(directory, { "Extra/File.txt": "x" });
+});
+
+test("settings.ts is rendered by aepm at install from every setting, each in a quoted string", { skip: !existsSync(new URL("../component.json", import.meta.url)) && "component.json is not in this copy" }, () => {
+  const manifest = JSON.parse(readFileSync(new URL("../component.json", import.meta.url), "utf8"));
+  assert.deepEqual(manifest.artefacts.find((item: { source: string }) => item.source === "implementation/apple/settings.ts"),
+    { source: "implementation/apple/settings.ts", destination: "components/apple-host/apple/settings.ts", template: true, executable: false });
+  const text = readFileSync(new URL("../implementation/apple/settings.ts", import.meta.url), "utf8");
+  assert.deepEqual([...text.matchAll(/"\{\{([A-Za-z]+)\}\}"/g)].map((match) => match[1]), manifest.collect.map((item: { id: string }) => item.id));
 });
