@@ -3,7 +3,7 @@
 ## For the agent
 Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.
 
-- Select package `ourapps-ae/apple-host` version `0.5.0`.
+- Select package `ourapps-ae/apple-host` version `0.5.1`.
 - Settings to configure:
   - `bundleIdentifier` (string, qualified; required)
   - `displayName` (string, label; required)

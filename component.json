@@ -470,7 +470,7 @@
     "name": "ourapps-ae/apple-host",
     "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
     "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "version": "0.5.0"
+    "version": "0.5.1"
   },
   "infrastructure": {
     "accounts": [],
@@ -522,7 +522,7 @@
       "scope": "required-local",
       "timeoutSeconds": 120,
       "tools": {
-        "node": "26.5.0"
+        "node": "26.5"
       }
     },
     {
@@ -548,8 +548,8 @@
       "scope": "platform",
       "timeoutSeconds": 120,
       "tools": {
-        "python3": "3.12.8",
-        "swiftc": "6.4.2"
+        "python3": "3.12",
+        "swiftc": "6.4"
       }
     },
     {
@@ -575,9 +575,9 @@
       "scope": "platform",
       "timeoutSeconds": 120,
       "tools": {
-        "node": "26.5.0",
-        "python3": "3.12.8",
-        "xcodegen": "2.46.0"
+        "node": "26.5",
+        "python3": "3.12",
+        "xcodegen": "2.46"
       }
     }
   ],
