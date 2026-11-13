@@ -1,6 +1,6 @@
 {
   "name": "apple-host",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "title": "Apple host",
   "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
   "facilities": [
