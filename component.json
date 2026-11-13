@@ -167,6 +167,12 @@
       "executable": false,
       "source": "implementation/apple/templates/tv-target.yml.template",
       "template": false
+    },
+    {
+      "destination": "components/apple-host/server/index.ts",
+      "executable": false,
+      "source": "implementation/server/index.ts",
+      "template": false
     }
   ],
   "capabilities": {
@@ -200,7 +206,8 @@
       "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Store.imagestack/Contents.json",
       "components/apple-host/apple/templates/tv-assets/AppIcon.brandassets/Wide.imageset/Contents.json",
       "components/apple-host/apple/templates/tv-assets/Contents.json",
-      "components/apple-host/apple/templates/tv-target.yml.template"
+      "components/apple-host/apple/templates/tv-target.yml.template",
+      "components/apple-host/server/index.ts"
     ]
   },
   "collect": [
@@ -402,6 +409,10 @@
     {
       "executable": false,
       "path": "implementation/apple/templates/tv-target.yml.template"
+    },
+    {
+      "executable": false,
+      "path": "implementation/server/index.ts"
     },
     {
       "executable": false,

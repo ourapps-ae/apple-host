@@ -50,8 +50,8 @@ public enum Platform {
     public static var uprightBoard: Bool { traits.uprightBoard }
 }
 
-extension View {
-    @ViewBuilder public func shellStatusBarHidden() -> some View {
+public extension View {
+    @ViewBuilder func shellStatusBarHidden() -> some View {
         #if os(iOS)
         statusBarHidden(true)
         #else
@@ -59,7 +59,7 @@ extension View {
         #endif
     }
 
-    @ViewBuilder public func shellNameInput() -> some View {
+    @ViewBuilder func shellNameInput() -> some View {
         #if os(iOS)
         textFieldStyle(.roundedBorder).textInputAutocapitalization(.words)
         #elseif os(macOS)
@@ -69,7 +69,7 @@ extension View {
         #endif
     }
 
-    @ViewBuilder public func shellButtonStyle() -> some View {
+    @ViewBuilder func shellButtonStyle() -> some View {
         #if os(tvOS)
         buttonStyle(.bordered)
         #else
@@ -78,7 +78,7 @@ extension View {
     }
 
     // The remote's Menu button; other platforms have no such command.
-    @ViewBuilder public func shellExitCommand(_ action: @escaping () -> Void) -> some View {
+    @ViewBuilder func shellExitCommand(_ action: @escaping () -> Void) -> some View {
         #if os(tvOS)
         onExitCommand(perform: action)
         #else
